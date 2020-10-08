@@ -1,0 +1,6 @@
+export const CLEAR_QUERY = 'CLEAR_QUERY';
+export const REQUEST_SEARCH = 'REQUEST_SEARCH';
+export const SEARCH_FAILURE = 'SEARCH_FAILURE';
+export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
+export const UPDATE_OPTIONS = 'UPDATE_OPTIONS';
+export const UPDATE_QUERY = 'UPDATE_QUERY';
