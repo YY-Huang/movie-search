@@ -1,4 +1,5 @@
-export const CLEAR_QUERY = 'CLEAR_QUERY';
+export const CLEAR_RESULTS = 'CLEAR_RESULTS';
+export const GET_NEXT_PAGE = 'GET_NEXT_PAGE';
 export const REQUEST_SEARCH = 'REQUEST_SEARCH';
 export const SEARCH_FAILURE = 'SEARCH_FAILURE';
 export const SEARCH_SUCCESS = 'SEARCH_SUCCESS';

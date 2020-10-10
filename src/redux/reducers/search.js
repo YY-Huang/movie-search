@@ -1,5 +1,5 @@
 import {
-    CLEAR_QUERY,
+    CLEAR_RESULTS,
     SEARCH_FAILURE,
     SEARCH_SUCCESS,
     UPDATE_OPTIONS,
@@ -16,15 +16,15 @@ export const initialState = {
 
 function searchReducer(state = initialState, action) {
     switch (action.type) {
-        case CLEAR_QUERY:
+        case CLEAR_RESULTS:
             return {
                 ...state,
-                query: '',
+                results: [],
             };
         case UPDATE_QUERY:
             return {
                 ...state,
-                query: action.payload,
+                ...action.payload,
             }
         case UPDATE_OPTIONS:
             return {
@@ -35,12 +35,16 @@ function searchReducer(state = initialState, action) {
         case SEARCH_SUCCESS:
             return {
                 ...state,
-                results: action.payload
+                page: action.payload.page,
+                results: [
+                    ...state.results,
+                    ...action.payload.results,
+                ],
             };
         case SEARCH_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
             }
         default:
             return state;

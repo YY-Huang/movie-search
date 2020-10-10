@@ -1,9 +1,8 @@
 import {
+    GET_NEXT_PAGE,
     SEARCH_SUCCESS,
     UPDATE_QUERY,
 } from '../constants';
-import TMDB from '../../utils/tmdb';
-import { get } from 'lodash';
 
 export const updateQuery = query => {
     return {
@@ -12,14 +11,12 @@ export const updateQuery = query => {
     };
 };
 
-export const requestSearch = (query, options) => {
-    return async dispatch => {
-        const res = await TMDB.search(query, options);
-        const results = get(res, 'data.results', []);
-
-        dispatch(searchSucess(results))
-    };
-};
+export const getNextPage = page => {
+    return {
+        type: GET_NEXT_PAGE,
+        payload: page,
+    }
+}
 
 export const searchSuccess = results => {
     return {

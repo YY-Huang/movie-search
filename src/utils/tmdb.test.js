@@ -5,6 +5,12 @@ test('creates an instance of a TMDB API controller', () => {
     expect(tmdb).toBeInstanceOf(TMDB);
 });
 
+test('TMDB can fetch and set a config', async () => {
+    await tmdb.configure();
+
+    expect(tmdb).toHaveProperty('config');
+})
+
 test('TMDB.search GETs a 200 OK response from the API', async () => {
     const res = await tmdb.search('spiderman');
     expect(res).toHaveProperty('status', 200);
@@ -32,5 +38,5 @@ test('TMDB.search can include and exclude adult content', async () => {
 
     const excludeResultsLength = get(excludeRes, 'data.results.length', 0);
 
-    expect(includeResultsLength).toBeGreaterThan(excludeResultsLength);
+    expect(includeResultsLengths).toBeGreaterThan(excludeResultsLength);
 })

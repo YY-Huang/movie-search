@@ -1,9 +1,12 @@
 import { all } from 'redux-saga/effects';
-import watchRequestsearch from './search';
-import { rootCertificates } from 'tls';
+import { 
+    watchGetNextPage, 
+    watchRequestSearch, 
+} from './search';
 
 export default function* rootSaga() {
     yield all([
-        watchRequestsearch(),
+        watchGetNextPage(),
+        watchRequestSearch(),
     ]);
 };
