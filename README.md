@@ -33,8 +33,10 @@ Happy Searching!
       - Alternative for a shorter solution without the external library and using a button to get the next results (not the modern experience with a button since           infinite scrolling is more popular)
 
  
- ### Future Features:
+ ### Future Features TBD with more time:
  - The details page of each results is short and should add the cast if I had enough time
+ - Better unit testing, I have to catch up on Jest testing with React Hooks 
+    - Each component will have its own unit testing
  
 
 ## Screenshots
