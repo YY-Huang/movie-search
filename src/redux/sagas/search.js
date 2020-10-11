@@ -48,7 +48,7 @@ function* getNextPage({ payload }) {
                     result.poster_path = yield call([tmdb, tmdb.constructImageURL], result.poster_path, 'w300');
                     break;
                 case 'person':
-                    const personRes = yield call([tmdbb, tmdb.getPerson], result.id);
+                    const personRes = yield call([tmdb, tmdb.getPerson], result.id);
                     const person = get(personRes, 'data', {});
 
                     person.media_type = 'person';
