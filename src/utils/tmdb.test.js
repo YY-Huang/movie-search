@@ -40,3 +40,5 @@ test('TMDB.search can include and exclude adult content', async () => {
 
     expect(includeResultsLengths).toBeGreaterThan(excludeResultsLength);
 })
+
+// test tmdb.getPerson for individual result 

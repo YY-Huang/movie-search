@@ -64,7 +64,7 @@ const IndexPage = () => {
 
         if (query) {
             dispatch(updateQuery({
-                include_adult: include_adult,
+                includeAdult: include_adult,
                 language,
                 query,
             }));
