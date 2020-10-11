@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ResultList from '../components/ResultList';
 import SearchInput from '../components/SearchInput';
+import SearchOptions from '../components/SearchOptions';
 import ShareLink from '../components/ShareLink';
 import { updateQuery } from '../redux/actions';
 import queryString from 'query-string';
@@ -15,6 +16,7 @@ const Page = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 `
 
 const Title = styled.h1`
@@ -29,8 +31,24 @@ const Title = styled.h1`
     }
 `
 
+const Toolbar = styled.div`
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
 const ShareLinkWrapper = styled.div`
-    margin: 1rem 0;
+    position: absolute;
+    top: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+
+    @media(min-width: 758px) {
+        top: 1rem;
+        right: 10%;
+        transform: none;
+    }
 `
 
 const IndexPage = () => {
@@ -59,11 +77,14 @@ const IndexPage = () => {
         <Page>
             <Title>Movie Search App</Title>
             <SearchInput />
-            { !!results.length &&
-                <ShareLinkWrapper title="Click to copy the search url">
-                    <ShareLink />
-                </ShareLinkWrapper>
-            }
+            <Toolbar>
+                <SearchOptions />
+                {!!results.length &&
+                    <ShareLinkWrapper title="Click to copy the search url">
+                        <ShareLink />
+                    </ShareLinkWrapper>
+                }
+            </Toolbar>
             <ResultList />
         </Page>
     );

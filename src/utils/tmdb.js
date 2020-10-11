@@ -58,6 +58,38 @@ export class TMDB {
         return res;
     }
 
+    async getList(id) {
+        const path = `/list/${id}`
+        const res = await this.axios4.get(path);
+        return res;
+    }
+
+    async createList(id) {
+        const path = `/list`
+        const res = await this.axios4.post(path, {
+            name: id,
+            iso_639_1: 'en',
+        });
+        return res;
+    }
+
+    async addToList(id, {
+        media_type,
+        media_id,
+      }) {
+        const path = `/list/${id}/items`
+        const res = await this.axios4.post(path, {
+          items: [
+            {
+              media_id,
+              media_type,
+            },
+          ],
+        });
+    
+        return res;
+      }
+
     async constructImageURL(path, size = 'original') {
         if (!this.config) {
             await this.configure();
