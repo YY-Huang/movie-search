@@ -15,7 +15,6 @@ A movie search replica using https://api.themoviedb.org/
   - Moment
   - Query-string
   - React-infinite-scroll-component
-  - Redux Logger
   - Redux Saga (sideeffects handler)
   - Styled Components (CSS)
   
