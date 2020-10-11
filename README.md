@@ -25,6 +25,18 @@ A movie search replica using https://api.themoviedb.org/
 
 Happy Searching!
 
+## Features
+ - Multi-search query results
+    - Not transparent on the user, for people it hits the people result API instead of the multi query results.
+ - Displays visual results as the user types
+ - Infinite scrolling with the library imported
+      - Alternative for a shorter solution without the external library and using a button to get the next results (not the modern experience with a button since           infinite scrolling is more popular)
+
+ 
+ ### Future Features:
+ - The details page of each results is short and should add the cast if I had enough time
+ 
+
 ## Screenshots
 
 ### Simple UI Search
