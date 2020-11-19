@@ -63,7 +63,9 @@ export class TMDB {
         const res = await this.axios4.get(path);
         return res;
     }
-
+    /*
+        Unfinished feature: Creates a list of favorites
+    */
     async createList(id) {
         const path = `/list`
         const res = await this.axios4.post(path, {
@@ -73,6 +75,9 @@ export class TMDB {
         return res;
     }
 
+    /* Unfinished feature
+        Adds to favorite list
+    */
     async addToList(id, {
         media_type,
         media_id,

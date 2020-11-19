@@ -2,6 +2,7 @@ import {
     GET_NEXT_PAGE,
     SEARCH_SUCCESS,
     UPDATE_QUERY,
+    FILTER_RESULTS,
 } from '../constants';
 
 export const updateQuery = query => {
@@ -24,3 +25,10 @@ export const searchSuccess = results => {
         payload: results,
     };
 };
+
+export const filterResults = voteAverage => {
+    return {
+        type: FILTER_RESULTS,
+        payload: voteAverage
+    }
+}

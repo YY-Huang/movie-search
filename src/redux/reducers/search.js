@@ -4,6 +4,7 @@ import {
     SEARCH_SUCCESS,
     UPDATE_OPTIONS,
     UPDATE_QUERY,
+    FILTER_RESULTS,
 }  from '../constants';
 
 export const initialState = {
@@ -12,6 +13,7 @@ export const initialState = {
     language: 'en-us',
     query: '',
     results: [],
+    ratingFilter: null,
 };
 
 function searchReducer(state = initialState, action) {
@@ -45,6 +47,17 @@ function searchReducer(state = initialState, action) {
             return {
                 ...state,
                 error: action.payload,
+            }
+        case FILTER_RESULTS:
+            console.log(action.payload)
+            const filteredResults = state.results.filter(result => {
+                console.log(result.vote_average)
+                return Math.floor(result.vote_average / 2) === action.payload
+            })
+                
+            return {
+                ...state,
+                results: filteredResults,
             }
         default:
             return state;

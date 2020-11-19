@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery } from '../../redux/actions';
+import { filterResults, updateQuery } from '../../redux/actions';
 import styled from 'styled-components';
 
 const SearchOptionsContainer = styled.div`
@@ -38,6 +38,13 @@ const SearchOptions = () => {
     language,
   } = useSelector(state => state.search);
 
+  const [checkedRating, setCheckedRating] = useState(1);
+  console.log(checkedRating)
+
+  const handleClickRating = rating => {
+    setCheckedRating(rating);
+  }
+
   const handleIncludeAdultChange = event => {
     dispatch(updateQuery({
       includeAdult: event.target.checked,
@@ -49,6 +56,10 @@ const SearchOptions = () => {
       language: event.target.value,
     }));
   };
+
+  useEffect(() => {
+    dispatch(filterResults(checkedRating))
+  }, [checkedRating])
 
   return (
     <SearchOptionsContainer>
@@ -69,6 +80,26 @@ const SearchOptions = () => {
           <option value="de">Deutsch</option>
         </select>
       </SelectContainer>
+      <div>
+        <label>1</label>
+        <input type="radio" value={1} checked={checkedRating === 1} onClick={() => handleClickRating(1)}/>
+      </div>
+      <div>
+        <label>2</label>
+        <input type="radio" value={2} checked={checkedRating === 2} onClick={() => handleClickRating(2)}/>
+      </div>
+      <div>
+        <label>3</label>
+        <input type="radio" value={3} checked={checkedRating === 3} onClick={() => handleClickRating(3)}/>
+      </div>
+      <div>
+        <label>4</label>
+        <input type="radio" value={4} checked={checkedRating === 4} onClick={() => handleClickRating(4)}/>
+      </div>
+      <div>
+        <label>5</label>
+        <input type="radio" value={5} checked={checkedRating === 5} onClick={() => handleClickRating(5)}/>
+      </div>
     </SearchOptionsContainer>
   );
 };
